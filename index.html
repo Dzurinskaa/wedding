@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+
+    <!-- Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Наш CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка с именами -->
+    <header class="header">
+        <div class="header-background"></div>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <div class="names">
+                <span class="name-main">ВЛАДИМИР</span>
+                <span class="name-amp">и</span>
+                <span class="name-main">АЛИНА</span>
+            </div>
+            <div class="date">08.07.2027</div>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
+        <div class="section-content">
+            <p>Мы давно ждали момента, когда сможем разделить с Вами этот важный и счастливый день нашей жизни.</p>
+            <p>Совсем скоро состоится наша свадьба!</p>
+            <p>Мы рады пригласить Вас стать свидетелями этого торжества и разделить с нами самые яркие моменты!</p>
+        </div>
+        
+        <div class="calendar-container">
+            <div class="calendar-month">ИЮЛЬ 2027</div>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- Календарь будет заполнен JavaScript -->
+                </tbody>
+            </table>
+            <div class="countdown">
+              <div class="countdown-text">До нашего дня осталось:</div>
+              <div class="countdown-days" id="daysLeft">...</div>
+              <div class="countdown-text">дней</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">LOCATION</h2>
+        <div class="section-content">
+            <p>Наш банкет пройдёт в ресторане <span class="highlight">«ЕЩЁ НЕ ОПРЕДЕЛИЛИСЬ»</span></p>
+            <p class="location-address">по адресу планета Земля</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">TIMING</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">11:00</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">ТОРЖЕСТВЕННАЯ РЕГИСТРАЦИЯ</div>
+                    <p>Бракосочетание состоится в ЗАГСе по адресу </p>
+                    <p><em>Тирасполь, ул. Луначарского, 26</em></p>
+                    <p>Примерная продолжительность: <span class="highlight">30 минут</span></p>
+                    <p>А затем будет фотосессия  <span class="highlight"></span></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">16:00</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">НАЧАЛО ФУРШЕТА</div>
+                    <p>планета Земля</p>
+                    <p><span class="highlight">«Ещё не определились»</span></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">16:30</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">НАЧАЛО БАНКЕТА</div>
+                    <p>Встреча <span class="highlight">МОЛОДОЖЁНОВ</span></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">24:00</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">РАЗРЕЗАНИЕ ТОРТА</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">DETAILS</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <div class="detail-number">01</div>
+                <div class="detail-text">
+                    Приятным комплиментом для нас будет, если вместо цветов Вы решите подарить нам бутылочку вина для нашей семейной винотеки.
+                </div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-number">02</div>
+                <div class="detail-text">
+                    Обращаем Ваше внимание, что мероприятие предназначено исключительно для взрослых гостей – детские столы и аниматоры не предусмотрены.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">DRESS CODE</h2>
+        <div class="dresscode-section">
+            <div class="dresscode-main">
+                <p>Будем признательны, если Вы выберете наряды в вечернем стиле.</p>
+                <p>Просьба избегать белого, молочного, цвета слоновой кости при выборе наряда.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">АНКЕТА ГОСТЯ</h2>
+        <div class="section-content">
+            <p>Пожалуйста, подтвердите своё присутствие до 1 июня 2027 года</p>
+            
+            <form id="guestForm">
+                <div class="form-group">
+                    <label for="guestName">Ваше имя и фамилия *</label>
+                    <input type="text" id="guestName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guestEmail">Ваш email или телефон *</label>
+                    <input type="text" id="guestEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guestCount">Количество гостей *</label>
+                    <select id="guestCount" required>
+                        <option value="" disabled selected>Выберите количество</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="btn" id="submitBtn">Подтвердить присутствие</button>
+                    <p id="formMessage" style="margin-top: 15px; display: none;"></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">ОБЩИЙ ЧАТ</h2>
+        <div class="section-content">
+            <p>Присоединяйтесь к нашему чату для гостей в Telegram, чтобы знакомиться и обмениваться фотографиями</p>
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#" class="btn" id="telegramBtn">
+                    присоединиться
+                </a>
+                 <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">(Ссылка на чат будет активна ближе к дате свадьбы)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h2>ЖДЁМ ВАС!</h2>
+        <div class="signature">с любовью, Владимир и Алина</div>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: #888;">08 июля 2027 года.</p>
+    </footer>
+
+    <script>
+        // ШАГ 1: Инициализация EmailJS с вашим PUBLIC_KEY
+        // Замените 'ВАШ_PUBLIC_KEY' на ваш реальный Public Key из EmailJS
+        emailjs.init('PUc2XPhkWvbVZfbj7');
+        
+        // Инициализация календаря на июль 2027
+        function initCalendar() {
+            const calendarBody = document.getElementById('calendarBody');
+            const weddingDate = new Date(2027, 6, 8);
+            
+            const daysInMonth = 31;
+            let day = 1;
+            let html = '';
+            
+            html += '<tr>';
+            for (let j = 0; j < 3; j++) {
+                html += '<td></td>';
+            }
+            
+            for (let j = 3; j < 7; j++) {
+                const cellClass = (day === 8) ? 'wedding-day' : '';
+                html += `<td class="${cellClass}">${day}</td>`;
+                day++;
+            }
+            html += '</tr>';
+            
+            for (let i = 0; i < 4; i++) {
+                html += '<tr>';
+                for (let j = 0; j < 7; j++) {
+                    if (day > daysInMonth) {
+                        html += '<td></td>';
+                    } else {
+                        const cellClass = (day === 8) ? 'wedding-day' : '';
+                        html += `<td class="${cellClass}">${day}</td>`;
+                        day++;
+                    }
+                }
+                html += '</tr>';
+            }
+            
+            calendarBody.innerHTML = html;
+        }
+        
+        function updateCountdown() {
+            const weddingDate = new Date('2027-07-08');
+            const today = new Date();
+            const timeDiff = weddingDate.getTime() - today.getTime();
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            
+            document.getElementById('daysLeft').textContent = daysDiff;
+        }
+        
+        // Обработка отправки формы
+        document.getElementById('guestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const email = document.getElementById('guestEmail').value;
+            const count = document.getElementById('guestCount').value;
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            // Данные для отправки на почту
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                guest_count: count,
+                to_email: "alinochka200455@gmail.com",
+                wedding_date: "08.07.2027",
+                reply_to: email,
+                submission_date: new Date().toLocaleDateString('ru-RU'),
+                submission_time: new Date().toLocaleTimeString('ru-RU')
+            };
+            
+            // Отправка через EmailJS
+            // ШАГ 2: Замените 'YOUR_TEMPLATE_ID' на ID вашего шаблона
+            emailjs.send('service_hk1ybie', 'template_jfe25kr', templateParams)
+                .then(function(response) {
+                    console.log('Письмо отправлено!', response.status, response.text);
+                    
+                    formMessage.textContent = `Спасибо, ${name}! Ваше присутствие подтверждено.`;
+                    formMessage.style.color = '#8b7355';
+                    formMessage.style.display = 'block';
+                    
+                    submitBtn.textContent = 'Подтверждено!';
+                    submitBtn.style.backgroundColor = '#8b7355';
+                    
+                    // Очистка формы
+                    document.getElementById('guestForm').reset();
+                    
+                    // Возврат кнопки в исходное состояние через 5 секунд
+                    setTimeout(function() {
+                        submitBtn.textContent = 'Подтвердить присутствие';
+                        submitBtn.style.backgroundColor = '#b0a48a';
+                        submitBtn.disabled = false;
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('Ошибка отправки:', error);
+                    
+                    formMessage.textContent = 'Ошибка отправки. Пожалуйста, свяжитесь с нами напрямую.';
+                    formMessage.style.color = '#e74c3c';
+                    formMessage.style.display = 'block';
+                    
+                    submitBtn.textContent = 'Попробовать снова';
+                    submitBtn.style.backgroundColor = '#b0a48a';
+                    submitBtn.disabled = false;
+                    
+                    setTimeout(function() {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                });
+        });
+        
+        document.getElementById('telegramBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Ссылка на Telegram-чат будет доступна ближе к дате свадьбы.');
+        });
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            initCalendar();
+            updateCountdown();
+            
+            setInterval(updateCountdown, 24 * 60 * 60 * 1000);
+        });
+    </script>
+</body>
+</html>

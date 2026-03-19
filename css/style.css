@@ -1,0 +1,450 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px 40px;
+        }
+
+        /* Шапка с именами - ИЗМЕНЕНО: текст в нижней части фото */
+        .header {
+            text-align: center;
+            padding: 0;
+            margin-bottom: 30px;
+            position: relative;
+            height: 1500px;
+           /* overflow: hidden;*/
+        }
+
+        /* Фоновое изображение для блока с именами */
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../assets/images/photo_1.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        /* Наложение - ИЗМЕНЕНО: градиент теперь сверху прозрачный, снизу темный */
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: 2;
+        }
+
+        /* Контейнер для контента - ИЗМЕНЕНО: текст внизу (25% от высоты) */
+        .header-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Изменено с flex-start на flex-end */
+            align-items: center;
+            padding-bottom: calc(1500px * 0.25); /* 25% от высоты блока снизу */
+        }
+
+        .names {
+            font-size: 3.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: normal;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .name-main {
+            display: block;
+            font-family: 'Georgia', serif;
+        }
+
+        .name-amp {
+            font-size: 2.2rem;
+            color: #f8f5f0;
+            margin: 10px 0;
+            display: block;
+            font-style: italic;
+            font-weight: normal;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .date {
+            font-size: 1.8rem;
+            color: #f8f5f0;
+            letter-spacing: 8px;
+            margin-top: 25px;
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Остальные стили без изменений */
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: normal;
+            letter-spacing: 5px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            right: 30%;
+            height: 1px;
+            background-color: #b0a48a;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .calendar-container {
+            margin: 40px auto;
+            max-width: 500px;
+        }
+
+        .calendar-month {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            letter-spacing: 3px;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #d4c9b8;
+            background-color: white;
+        }
+
+        .calendar th {
+            padding: 12px 5px;
+            font-weight: normal;
+            border-bottom: 1px solid #d4c9b8;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .calendar td {
+            padding: 15px 5px;
+            text-align: center;
+            border: 1px solid #eae5dd;
+            position: relative;
+            font-size: 1rem;
+            height: 50px; /* Добавлено для лучшего позиционирования сердечка */
+        }
+
+        /* ОБНОВЛЕНО: стиль для дня свадьбы с сердечком */
+        .calendar .wedding-day {
+            background-color: #f0ebe5;
+            font-weight: bold;
+            color: #2c2c2c;
+            position: relative;
+        }
+
+        /* ДОБАВЛЕНО: сердечко в день свадьбы */
+        .calendar .wedding-day::after {
+            content: "❤";
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            font-size: 0.8rem;
+            color: #e74c3c; /* Красный цвет для сердечка */
+        }
+
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .timeline-time {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #2c2c2c;
+            min-width: 80px;
+            margin-right: 25px;
+            text-align: right;
+            font-family: 'Georgia', serif;
+        }
+
+        .timeline-content {
+            flex: 1;
+            text-align: left;
+            padding-left: 20px;
+            border-left: 2px solid #b0a48a;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #2c2c2c;
+            letter-spacing: 1px;
+        }
+
+        .details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .detail-number {
+            font-size: 1.8rem;
+            color: #b0a48a;
+            margin-right: 25px;
+            min-width: 50px;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+        }
+
+        .detail-text {
+            flex: 1;
+            padding-top: 5px;
+        }
+
+        .dresscode-section {
+            background-color: #f9f7f3;
+            padding: 30px;
+            border: 1px solid #e5dfd5;
+            margin-top: 20px;
+        }
+
+        .dresscode-main {
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .dresscode-warning {
+            color: #8b7355;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* Стили для кнопок - ОБНОВЛЕНО: одинаковые эффекты наведения */
+        .btn {
+            display: inline-block;
+            background-color: #b0a48a;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: normal;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* ОБНОВЛЕНО: одинаковая анимация наведения для всех кнопок */
+        .btn:hover {
+            background-color: #9a8d77;
+            transform: translateY(-3px); /* Легкий подъем при наведении */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+        }
+
+        /* ОБНОВЛЕНО: анимация нажатия для всех кнопок */
+        .btn:active {
+            transform: translateY(-1px); /* Меньший подъем при нажатии */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Меньшая тень при нажатии */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+            font-size: 1rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d4c9b8;
+            background-color: white;
+            border-radius: 0;
+            font-size: 1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px 0 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b0a48a, transparent);
+        }
+
+        .footer h2 {
+            font-size: 1.8rem;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .signature {
+            font-size: 1.4rem;
+            color: #b0a48a;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .countdown {
+            text-align: center;
+            margin: 30px auto;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #f9f7f3;
+            border: 1px solid #e5dfd5;
+        }
+
+        .countdown-text {
+            font-size: 1.1rem;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+        }
+
+        .countdown-days {
+            font-size: 2rem;
+            color: #b0a48a;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* Адаптивность - ИЗМЕНЕНО: для нижнего позиционирования */
+        @media (max-width: 768px) {
+            .header {
+                height: 1000px;
+            }
+            
+            .header-content {
+                padding-bottom: calc(1000px * 0.25); /* 25% от новой высоты снизу */
+            }
+            
+            .names {
+                font-size: 2.8rem;
+            }
+            
+            .date {
+                font-size: 1.4rem;
+                letter-spacing: 5px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+                letter-spacing: 3px;
+            }
+            
+            .dresscode-columns {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-time {
+                margin-bottom: 10px;
+                margin-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-content {
+                padding-left: 0;
+                border-left: none;
+                padding-top: 10px;
+                border-top: 2px solid #b0a48a;
+            }
+        }
+
+        .highlight {
+            color: #b0a48a;
+            font-weight: bold;
+        }
+
+        .location-address {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            letter-spacing: 1px;
+        }
+
+        a {
+            color: #b0a48a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #9a8d77;
+            text-decoration: underline;
+        }
